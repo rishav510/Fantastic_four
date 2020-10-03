@@ -1,5 +1,0 @@
-This is some sample text.
-
-
-There is a lot coming after this.
-This is some more sample test.
