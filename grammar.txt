@@ -1,3 +1,4 @@
+#Our file
 <ID>               --> [A-Za-z_][A-Za-z0-9_]*
 
 <ASSIGNMENT_STMT>  --> <ID> = <ARITHMETIC_EXPR> | <BOOLEAN_EXPR> ;
@@ -13,5 +14,8 @@
 
 //check
 
+
+
+/**fROM here onwards  We will add declaration grammer **/
 
   
