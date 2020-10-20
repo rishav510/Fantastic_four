@@ -8,5 +8,10 @@
 |\<BOOLEAN_EXPR\>|Boolean expression. Operands: boolean. Operators: &&&, \|\|\||
 |\<OR_EXPR\>|"Or" expression. Expressions comprising boolean operands and \|\|\| operand.|
 |\<AND_EXPR\>|"And" expression. Expressions comprising boolean operands and &&& operand.|
+|\<ARRAY_ELEMENT\>|Array element, which is int type.|
+|\<VAR\>|Either a variable of int/ real type, or an array element.|
+|\<LIST_NUM\>|Space separated list of numbers.|
+|\<NUM\>|Any non-negative integer.|
+|\<\>||
 |\<\>||
 |\<\>||
