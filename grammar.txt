@@ -1,21 +1,18 @@
-#Our file
+
 <ID>               --> [A-Za-z_][A-Za-z0-9_]*
 
 <ASSIGNMENT_STMT>  --> <ID> = <ARITHMETIC_EXPR> | <BOOLEAN_EXPR> ;
 
 <ARITHMETIC_EXPR>  --> <ARITHMETIC_EXPR> + <LINEAR_EXPR> | <ARITHMETIC_EXPR> - <LINEAR_EXPR> | <LINEAR_EXPR>
 <LINEAR_EXPR> --> <LINEAR_EXPR> * <FACTOR> | <LINEAR_EXPR> / <FACTOR> | <FACTOR>
-<FACTOR> --> <ID> | CONST_ARITH | (<ARITMETIC_EXPR>)
-
+<FACTOR> --> <VAR> |  (<ARITMETIC_EXPR>) 
+<VAR> --> <ID> | <ARRAY_ELEMENT> 
 
 <BOOLEAN_EXPR> --> <BOOLEAN_EXPR> ||| <OR_EXPR>
 <OR_EXPR> --> <OR_EXPR> &&& <AND_EXPR>
-<AND_EXPR> --> ID | CONST_BOOL
-
-//check
-
-
-
-/**fROM here onwards  We will add declaration grammer **/
+<AND_EXPR> --> <ID>
+<ARRAY_ELEMENT> --> <ID> [ <LIST_NUM> ]
+<LIST_NUM> --> <NUM> <LIST_NUM>
+<NUM> --> [0-9]+
 
   
