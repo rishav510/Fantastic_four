@@ -1,18 +1,30 @@
 
 <ID>               --> [A-Za-z_][A-Za-z0-9_]*
 
+
+<DECLARE_STMT>     --> declare <ID> : <TYPE> ; | declare list of variables <IDS> : <TYPE> ; 
+<IDS>              --> <ID> | <ID> <IDS>
+
+
+
+
+
+
 <ASSIGNMENT_STMT>  --> <ID> = <ARITHMETIC_EXPR> | <BOOLEAN_EXPR> ;
 
 <ARITHMETIC_EXPR>  --> <ARITHMETIC_EXPR> + <LINEAR_EXPR> | <ARITHMETIC_EXPR> - <LINEAR_EXPR> | <LINEAR_EXPR>
 <LINEAR_EXPR>      --> <LINEAR_EXPR> * <FACTOR> | <LINEAR_EXPR> / <FACTOR> | <FACTOR>
 <FACTOR>           --> <VAR> | (<ARITMETIC_EXPR>) 
 <VAR>              --> <ID> | <ARRAY_ELEMENT> 
+<ARRAY_ELEMENT>    --> <ID> [ <LIST_INDICES> ]
+<LIST_INDICES>     --> <NUM> <LIST_INDICES> | <ID> <LIST_INDICES>
+<NUM>              --> [0-9]+
+
 
 <BOOLEAN_EXPR>     --> <BOOLEAN_EXPR> ||| <OR_EXPR>
 <OR_EXPR>          --> <OR_EXPR> &&& <AND_EXPR>
 <AND_EXPR>         --> <ID>
-<ARRAY_ELEMENT>    --> <ID> [ <LIST_NUM> ]
-<LIST_NUM>         --> <NUM> <LIST_NUM>
-<NUM>              --> [0-9]+
+
+
 
   
