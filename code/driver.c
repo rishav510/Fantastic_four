@@ -1,9 +1,10 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 
 int main(){
 
-	while(true){
+	while(1){
 
 		int input ;
 		scanf("%d",&input);
@@ -11,24 +12,26 @@ int main(){
 		switch(input){
 
 			case 0: 
-			      // printf("exit");
+			       printf("\nexits");
+			       exit(1);
 			       break;
 
 			case 1:
-			      // create parse tree 
-					break;
+			       printf("\nCreates Parse Tree");
+			       break;
 
 			case 2:
-			/* traverse the parse tree and construct type expression table Also print the type errors while
-			traversing the parse tree and accessing the typeExpressionTable. */
-				   break;
+				printf("\ntraverse the parse tree and construct type expression table Also print the type errors while traversing the parse tree and accessing the typeExpressionTable.");
+				break;
 
 			case 3:
-			//print parse tree in specified format
+				printf("print parse tree in specified format");
 			       break;
 
 			case 4:
-			 //Print typeExpressionTable in the specified format.
+			 	printf("Print typeExpressionTable in the specified format.");
+			 	break;
+			 
 
 
 		}
