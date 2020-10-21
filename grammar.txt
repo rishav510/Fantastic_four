@@ -19,9 +19,9 @@
 /* Multidimensional Recangualar Array Grammer */
 
 
-<ArrayDecl> --> <SingleValArray> | <MultivalArray>
-<MultivalArray> --> declare list of variables <ID><List> : array  <DIM > of integer <Semicolumn>
-<List> --> <ID><List> | <ID>
+<Array_Declare> --> <SingleValArray> | <MultivalArray>
+<MultivalArray> --> declare list of variables <IDS> : array  <DIM > of integer <Semicolumn>
+<IDS> --> <ID><IDS> | <ID>
 <DIM> --> SQO low..high SQC <DIM> | SQO low..high SQC 
 <SingleValArray> --> declare <ID> : array <DIM> of integer <Semicolumn>
 <Semicolumn> --> ';'
