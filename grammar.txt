@@ -12,15 +12,15 @@
 <OR_EXPR> --> <OR_EXPR> &&& <AND_EXPR>
 <AND_EXPR> --> ID | CONST_BOOL
 
-//Grammer for jagged Array
+//Grammar for jagged Array
 
 <Declaration>--><ArrayDecl> <semicolon> <R1_Array>
 <ArrayDecl> --> <SingleValjaggedArray> | <MultivaljaggedArray>
-<MultivaljaggedArray> --> declare list of variables <ID> space <List> : jagged array  <DIM > of integer <Semicolon>
+<MultivaljaggedArray> --> declare list of variables <List> : jagged array  <DIM > of integer
+<SingleValjaggedArray> --> declare <ID> : jagged array <DIM> of integer
+<R1_Array> -->R1 SQO <integer> SQC : size <Integer> : values CBO <NUM> CBC <R1_Array>| Ø
 <List> --> <ID> space <List> | <ID>
-<DIM> --> SQO low..high SQC <DIM> | SQO SQC 
-<SingleValjaggedArray> --> declare <ID> : jagged array <DIM> of integer <Semicolon>
+<DIM> --> SQO low..high SQC <DIM> | SQO SQC <DIM> | Ø
+<NUM> --><ID1> <Semicolon> <NUM>| <integer>
+<ID1> --><Integer> space <ID1> | <integer>
 <Semicolon> --> ';'
-<R1_Array> -->R1 SQO <integer> SQC : size <Integer> : values CBO <NUM> CBC <R1_Array>
-<NUM> --><ID1> <Semicolon> <NUM>| <Integer>
-<ID1> --><Integer> space <ID1> | <Integer>
