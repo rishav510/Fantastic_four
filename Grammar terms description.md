@@ -17,4 +17,5 @@
 |\<STMTS\>|The non-terminal representing all the statements in the program.|
 |\<DECLARE_STMTS\>|A bunch of declare statements.|
 |\<ASSIGNMENT_STMTS\>|A bunch of assignment statments.|
+|\<INDEX\>|Either a \<NUM\> or an \<ID\>|
 |\<\>||
