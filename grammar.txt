@@ -26,4 +26,4 @@
 <SingleValArray> --> declare <ID> : array <DIM> of integer <Semicolumn>
 <Semicolumn> --> ';'
 
-  
+  /* Here <DIM> is recursive non terminal of rectangular array which crates dimesions for MD array*/
