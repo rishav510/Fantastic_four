@@ -12,4 +12,18 @@
 <AND_EXPR> --> ID | CONST_BOOL
 
 /**fROM here onwards  We will add declaration grammer **/
+
+
+
+
+/* Multidimensional Recangualar Array Grammer */
+
+
+<ArrayDecl> --> <SingleValArray> | <MultivalArray>
+<MultivalArray> --> declare list of variables <ID><List> : array  <DIM > of integer <Semicolumn>
+<List> --> <ID><List> | <ID>
+<DIM> --> SQO low..high SQC <DIM> | SQO low..high SQC 
+<SingleValArray> --> declare <ID> : array <DIM> of integer <Semicolumn>
+<Semicolumn> --> ';'
+
   
