@@ -20,7 +20,7 @@
 <SingleValjaggedArray> --> declare <ID> : jagged array <DIM> of integer
 <R1_Array> -->R1 SQO <NUM> SQC : size <NUM> : values CBO <NUM> CBC <R1_Array>| Ø
 <IDS> --> <ID><IDS> | <ID>
-<DIM> --> SQO low..high SQC <DIM> | SQO SQC <DIM>
+<DIM> --> SQO low..high SQC <DIM> | SQO SQC
 <VAR> --><ID1> <Semicolon> <VAR>| <ARRAY_ELEMENT>
 <ID1> --><ARRAY_ELEMENT> space <ID1> | <ARRAY_ELEMENT>
 <Semicolon> --> ';'
