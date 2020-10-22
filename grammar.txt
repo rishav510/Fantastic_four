@@ -14,13 +14,13 @@
 
 //Grammar for jagged Array
 
-<Declaration>--><ArrayDecl> <semicolon> <R1_Array>
+<DECLARE_STMT> --><ArrayDecl> <semicolon> <R1_Array>
 <ArrayDecl> --> <SingleValjaggedArray> | <MultivaljaggedArray>
-<MultivaljaggedArray> --> declare list of variables <List> : jagged array  <DIM > of integer
+<MultivaljaggedArray> --> declare list of variables <IDS> : jagged array  <DIM > of integer
 <SingleValjaggedArray> --> declare <ID> : jagged array <DIM> of integer
-<R1_Array> -->R1 SQO <integer> SQC : size <Integer> : values CBO <NUM> CBC <R1_Array>| Ø
-<List> --> <ID> space <List> | <ID>
-<DIM> --> SQO low..high SQC <DIM> | SQO SQC <DIM> | Ø
-<NUM> --><ID1> <Semicolon> <NUM>| <integer>
-<ID1> --><Integer> space <ID1> | <integer>
+<R1_Array> -->R1 SQO <NUM> SQC : size <NUM> : values CBO <NUM> CBC <R1_Array>| Ø
+<IDS> --> <ID><IDS> | <ID>
+<DIM> --> SQO low..high SQC <DIM> | SQO SQC <DIM>
+<VAR> --><ID1> <Semicolon> <VAR>| <ARRAY_ELEMENT>
+<ID1> --><ARRAY_ELEMENT> space <ID1> | <ARRAY_ELEMENT>
 <Semicolon> --> ';'
