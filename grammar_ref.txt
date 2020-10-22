@@ -30,8 +30,8 @@
 
 
 <ArrayDecl> --> <SingleValArray> | <MultivalArray>
-<MultivalArray> --> declare list of variables <ID><List> : array  <DIM > of integer <Semicolumn>
-<List> --> <ID><List> | <ID>
+<MultivalArray> --> declare list of variables <ID><IDS> : array  <DIM > of integer <Semicolumn>
+<IDS> --> <ID><List> | <ID>
 <DIM> --> SQO low..high SQC <DIM> | SQO low..high SQC 
 <SingleValArray> --> declare <ID> : array <DIM> of integer <Semicolumn>
 <Semicolumn> --> ';'
