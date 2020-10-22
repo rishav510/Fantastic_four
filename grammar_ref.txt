@@ -30,22 +30,19 @@
 
 
 <ArrayDecl> --> <SingleValArray> | <MultivalArray>
-<MultivalArray> --> declare list of variables <ID><List> : array  <DIM > of integer <Semicolumn>
-<List> --> <ID><List> | <ID>
+<MultivalArray> --> declare list of variables <IDS> : array  <DIM > of integer;
+<IDS> --> <ID><IDS> | <ID>
 <DIM> --> SQO low..high SQC <DIM> | SQO low..high SQC 
-<SingleValArray> --> declare <ID> : array <DIM> of integer <Semicolumn>
-<Semicolumn> --> ';'
+<SingleValArray> --> declare <ID> : array <DIM> of integer;
 
 //Grammar for jagged Array
 
-<Declaration>--><ArrayDecl> <semicolon> <R1_Array>
-<ArrayDecl> --> <SingleValjaggedArray> | <MultivaljaggedArray>
-<MultivaljaggedArray> --> declare list of variables <IDS> : jagged array  <DIM > of integer
-<SingleValjaggedArray> --> declare <ID> : jagged array <DIM> of integer
-<R1_Array> -->R1 SQO <integer> SQC : size <Integer> : values CBO <NUM> CBC <R1_Array>| Ø
-<IDS> --> <ID> space <IDS> | <ID>
-<DIM> --> SQO low..high SQC <DIM> | SQO SQC <DIM> | Ø
-<NUM> --><ID1> <Semicolon> <NUM>| <integer>
-<ID1> --><Integer> space <ID1> | <integer>
-<Semicolon> --> ';'
+
+<STMTS> --><DECLARE_STMT> <R1_Array>     //<DECLARE_STMT> and <IDS> as given above line number 8 and 9
+<TYPE> -->jagged array <DIM> of integer
+<R1_Array> -->R1 SQO <NUM> SQC : size <NUM> : values CBO <FACTOR> CBC <R1_Array>| Ø
+<DIM> --> SQO low..high SQC <DIM> | SQO SQC 
+<FACTOR> --><VAR> ; <FACTOR>| <VAR>
+<VAR> --><ARRAY_ELEMENT> space <VAR> | <ARRAY_ELEMENT>
+
 
