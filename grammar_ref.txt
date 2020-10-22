@@ -40,10 +40,10 @@
 
 <Declaration>--><ArrayDecl> <semicolon> <R1_Array>
 <ArrayDecl> --> <SingleValjaggedArray> | <MultivaljaggedArray>
-<MultivaljaggedArray> --> declare list of variables <List> : jagged array  <DIM > of integer
+<MultivaljaggedArray> --> declare list of variables <IDS> : jagged array  <DIM > of integer
 <SingleValjaggedArray> --> declare <ID> : jagged array <DIM> of integer
 <R1_Array> -->R1 SQO <integer> SQC : size <Integer> : values CBO <NUM> CBC <R1_Array>| Ø
-<List> --> <ID> space <List> | <ID>
+<IDS> --> <ID> space <IDS> | <ID>
 <DIM> --> SQO low..high SQC <DIM> | SQO SQC <DIM> | Ø
 <NUM> --><ID1> <Semicolon> <NUM>| <integer>
 <ID1> --><Integer> space <ID1> | <integer>
