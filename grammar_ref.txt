@@ -1,11 +1,9 @@
-
 <ID>               --> [A-Za-z_][A-Za-z0-9_]*
-
 <STMTS>            --> <DECLARE_STMTS> <ASSIGNMENT_STMTS>
 <DECLARE_STMTS>    --> <DECLARE_STMT> <DECLARE_STMTS>
 <ASSIGNMENT_STMTS> --> <ASSIGNMENT_STMT> <ASSIGNMENT_STMTS>
 
-<DECLARE_STMT>     --> declare <ID> : <TYPE> ; | declare list of variables <IDS> : <TYPE> ; 
+<DECLARE_STMT>     --> declare <ID> : <TYPE> ; | declare list of variables <IDS> : <TYPE> ; | <MULTILINE_DECLARE_STMT> ;
 <IDS>              --> <ID> | <ID> <IDS>
 
 
@@ -13,7 +11,7 @@
 
 
 
-<ASSIGNMENT_STMT>  --> <ID> = <ARITHMETIC_EXPR> | <BOOLEAN_EXPR> ;
+<ASSIGNMENT_STMT>  --> <ID> = <ARITHMETIC_EXPR> ; | <BOOLEAN_EXPR> ;
 
 <ARITHMETIC_EXPR>  --> <ARITHMETIC_EXPR> + <LINEAR_EXPR> | <ARITHMETIC_EXPR> - <LINEAR_EXPR> | <LINEAR_EXPR>
 <LINEAR_EXPR>      --> <LINEAR_EXPR> * <FACTOR> | <LINEAR_EXPR> / <FACTOR> | <FACTOR>
@@ -26,23 +24,23 @@
 
 <BOOLEAN_EXPR>     --> <BOOLEAN_EXPR> ||| <OR_EXPR>
 <OR_EXPR>          --> <OR_EXPR> &&& <AND_EXPR>
-<AND_EXPR>         --> <ID>
+<AND_EXPR>         --> <ID> | (<BOOLEAN_EXPR>)
 
+<ID_NUM> --> <ID> | <NUM>
 
-<ArrayDecl> --> <SingleValArray> | <MultivalArray>
-<MultivalArray> --> declare list of variables <IDS> : array  <DIM > of integer;
-<IDS> --> <ID><IDS> | <ID>
-<DIM> --> SQO low..high SQC <DIM> | SQO low..high SQC 
-<SingleValArray> --> declare <ID> : array <DIM> of integer;
+<DIM> --> [ <ID_NUM> .. <ID_NUM> ] <DIM> | [ <ID_NUM> .. <ID_NUM> ] 
+***<SingleValArray> --> declare <ID> : array <DIM> of integer;
+
+<TYPE> --> int | real | boolean | array <DIM> of integer | jagged array <DIM2> of integer
 
 //Grammar for jagged Array
 
 
-<STMTS> --><DECLARE_STMT> <R1_Array>     //<DECLARE_STMT> and <IDS> as given above line number 8 and 9
-<TYPE> -->jagged array <DIM> of integer
-<R1_Array> -->R1 SQO <NUM> SQC : size <NUM> : values CBO <FACTOR> CBC <R1_Array>| Ø
-<DIM> --> SQO low..high SQC <DIM> | SQO SQC 
-<FACTOR> --><VAR> ; <FACTOR>| <VAR>
-<VAR> --><ARRAY_ELEMENT> space <VAR> | <ARRAY_ELEMENT>
+<MULTILINE_DECLARE_STMT> --><DECLARE_STMT> <R1_Array>     //<DECLARE_STMT> and <IDS> as given above line number 8 and 9
+
+<R1_Array> --> R1 [ <NUM> ] : size <NUM> : values { <ELEMS> } <R1_Array>| Ø
+<DIM2> --> [ <NUM> .. <NUM> ] <DIM2> | [ ] 
+<ELEMS> --> <LIST_NUM> ; <ELEMS>| <LIST_NUM>
+<LIST_NUM> --> <NUM> <LIST_NUM> | <NUM>
 
 
