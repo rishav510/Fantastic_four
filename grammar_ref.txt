@@ -37,10 +37,12 @@
 
 //Grammar for jagged Array
 
+
 <STMTS> --><DECLARE_STMT> <R1_Array>     //<DECLARE_STMT> and <IDS> as given above line number 8 and 9
 <TYPE> -->jagged array <DIM> of integer
 <R1_Array> -->R1 SQO <NUM> SQC : size <NUM> : values CBO <FACTOR> CBC <R1_Array>| Ø
 <DIM> --> SQO low..high SQC <DIM> | SQO SQC 
 <FACTOR> --><VAR> ; <FACTOR>| <VAR>
 <VAR> --><ARRAY_ELEMENT> space <VAR> | <ARRAY_ELEMENT>
+
 
