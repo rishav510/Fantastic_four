@@ -20,8 +20,8 @@
 |\<INDEX\>|Either a \<NUM\> or an \<ID\>|
 |\<DIM\>|Dimension for a rectangular array|
 |\<DIM2\>|Dimensions for a jagged array|
-|\<Elems\>|Var type in jagged array|
-|\<List_num\>|List of numbers in jagged array|
+|\<Elems\>|One more more list of numbers separated by semicolons|
+|\<List_num\>|A list of space separated numbers|
 |\<\>||
 |\<\>||
 |\<\>||
