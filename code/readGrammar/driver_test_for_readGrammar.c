@@ -11,7 +11,8 @@ void print_gnodes(gnode*);
 void print_gnodes(gnode* head)
 {
 	gnode* p = head;
-	while(p->next!=NULL)
+	//printf("%s", p->rhs_term);
+	while(p!=NULL)
 	{
 		printf("%s->", p->rhs_term);
 		p = p->next;

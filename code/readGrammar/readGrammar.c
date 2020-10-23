@@ -33,6 +33,8 @@ gelement* readGrammar(gelement* G)
 			
 			gnode* new;						//declare a new node
 			
+			token = strtok(NULL, delimiter);
+			
 			G[i].head = create_gnode();	
 			
 			while(token!=NULL)					//while there are more tokens
