@@ -38,7 +38,7 @@
 
 <MULTILINE_DECLARE_STMT> --><SINGLELINE_DECLARE_STMT> <R1_Array>     //<DECLARE_STMT> and <IDS> as given above line number 8 and 9
 
-<R1_Array> --> R1 [ <NUM> ] : size <NUM> : values { <ELEMS> } <R1_Array>| Ø
+<R1_ARRAY> --> R1 [ <NUM> ] : size <NUM> : values { <ELEMS> } <R1_ARRAY>
 <DIM2> --> [ <NUM> .. <NUM> ] <DIM2> | [ ] 
 <ELEMS> --> <LIST_NUM> ; <ELEMS>| <LIST_NUM>
 <LIST_NUM> --> <NUM> <LIST_NUM> | <NUM>
