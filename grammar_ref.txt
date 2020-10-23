@@ -29,7 +29,7 @@
 <ID_NUM> --> <ID> | <NUM>
 
 <DIM> --> [ <ID_NUM> .. <ID_NUM> ] <DIM> | [ <ID_NUM> .. <ID_NUM> ] 
-***<SingleValArray> --> declare <ID> : array <DIM> of integer;
+
 
 <TYPE> --> int | real | boolean | array <DIM> of integer | jagged array <DIM2> of integer
 
