@@ -18,10 +18,10 @@
 |\<DECLARE_STMTS\>|A bunch of declare statements.|
 |\<ASSIGNMENT_STMTS\>|A bunch of assignment statments.|
 |\<INDEX\>|Either a \<NUM\> or an \<ID\>|
-|\<\>||
-|\<\>||
-|\<\>||
-|\<\>||
+|\<DIM\>|Dimension for a rectangular array|
+|\<DIM2\>|Dimensions for a jagged array|
+|\<Elems\>|Var type in jagged array|
+|\<List_num\>|List of numbers in jagged array|
 |\<\>||
 |\<\>||
 |\<\>||
