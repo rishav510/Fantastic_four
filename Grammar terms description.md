@@ -23,10 +23,10 @@
 |\<DIM\>|Dimension for a rectangular array|
 |\<DIM2\>|Dimensions for a jagged array|
 |\<ELEMS\>|One more more list of numbers separated by semicolons|
-|\<List_NUM\>|A list of space separated numbers|
+|\<LIST_NUM\>|A list of space separated numbers|
 |\<R1_ARRAY\>||
 |\<TYPE\>|Represents all the data types i.e. integer, real, boolean, rectangular and jagged arrays|
-|\<\>||
+|\<ID_NUM\>|Either a variable name or a number|
 |\<\>||
 |\<\>||
 |\<\>||
