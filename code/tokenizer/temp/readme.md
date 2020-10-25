@@ -1,7 +1,7 @@
 identify_token() function working fine. Request to test. 
 
-read Makefile and use make commands to compile and test (just type the following: make <command> , where <command> is the lhs of the make rule)
+read Makefile and use make commands to compile and test.
 
 [Makefile](Makefile)
 [identify_token.c](identify_token.c)
-
+[the source code being taken as input](src.txt) (Edit this and check please!)
