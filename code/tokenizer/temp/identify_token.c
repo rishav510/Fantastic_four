@@ -1,11 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include "symbolic_constants.h"
+#include "is_keyword.h"
+#include "is_ID.h"
 
-#define MAX_SRC_WORD 100					//max length of a word
-#define MAX_READ_LINE 256
 
-typedef enum {ID, CONSTANT, OPERATOR, PUNCTUATOR, NA} token;
+typedef enum {ID, KEYWORD, CONSTANT, OPERATOR, PUNCTUATOR, NA} token;
 
 void print_token_name(char * token_string);
 
@@ -21,11 +22,20 @@ token identify_token(char *token_string)
 	
 	
 	if(!strcmp(word,"+") || !strcmp(word,"-") || !strcmp(word,"*") || !strcmp(word,"/") || !strcmp(word,"|||") || !strcmp(word,"&&&") || !strcmp(word,"="))
+	t_name = OPERATOR;
 	
-		t_name = OPERATOR;
+	else if(!strcmp(word,",") || !strcmp(word,";") || !strcmp(word,"(") || !strcmp(word,")") || !strcmp(word,"{") || !strcmp(word,":") || !strcmp(word,"}") || !strcmp(word,"[") || !strcmp(word,"]") || !strcmp(word,".."))
+	t_name = PUNCTUATOR;
+		
+	else if(is_keyword(word))
+		t_name = KEYWORD;
 	
+	else if(is_ID(word))
+		t_name = ID;
+		
 	else
 		t_name = NA;
+		
 	return t_name;
 		
 }
@@ -47,6 +57,8 @@ void print_token_name(char * token_string)
 		case OPERATOR: strcpy(token_name_string,"OPERATOR");
 				break;
 		case PUNCTUATOR: strcpy(token_name_string,"PUNCTUATOR");
+				break;
+		case KEYWORD: strcpy(token_name_string, "KEYWORD");
 				break;
 		case NA: strcpy(token_name_string,"NA");
 	
