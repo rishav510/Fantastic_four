@@ -10,12 +10,15 @@
 #define MAX_READ_LINE 256
 
 typedef enum {ID, CONSTANT, OPERATOR, PUNCTUATOR, NA} token;	//enum representing token name
+
 typedef struct tokeniser_node{				//record for one node of the linked list
 	int line_number;			
 	char lexeme [MAX_SRC_WORD];
 	token token_name;
 	struct tokeniser_node *next;
 }t_node;
+
+
 
 t_node * create_t_node();
 void print_linked_list(t_node* head);
@@ -48,19 +51,16 @@ t_node * tokeniseSourceCode (char * filename, t_node * head)	//the function we'r
 	fd_src = fopen(filename, "r");
 	char read_buffer[MAX_READ_LINE]; 
 	int line_number = 1;
-	char *token;
+	char *token_string;
 	t_node* head, *p;
 	p = head;
 	while(fgetc(read_buffer, sizeof(readbuffer), fd_src)!= EOF)
 	{
-		token = strtoken(read_buffer," ");
-		while(token!=NULL)
+		token_string = strtoken(read_buffer," ");
+		while(token_string!=NULL)
 		{
-			if(!strcmp("declare",token));		/*I was thinking it will be better if we modularise this portion and turn it into a boolean function with single argument. Could you work
-								on this a litle? */ 
-			{
-				
-			}
+			token = 
+			case 
 		}
 	}
 }
