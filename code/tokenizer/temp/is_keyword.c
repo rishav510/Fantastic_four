@@ -3,7 +3,7 @@
 #include<string.h>
 #include "symbolic_constants.h"
 
-				//max length of a word
+	
 
 
 int is_keyword(char* token_string) 
@@ -12,7 +12,10 @@ int is_keyword(char* token_string)
 	for(int i = 0; i<11;i++)
 	{
 		if(!strcmp(array_of_keywords[i], token_string))
+		{
+			
 			return 1;
+		}
 	}
 	return 0;
 }

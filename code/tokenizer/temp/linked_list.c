@@ -5,11 +5,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include "symbolic_constants.h"
+#include "identify_token.h"
 
-#define MAX_SRC_WORD 100					//max length of a word
-#define MAX_READ_LINE 256
 
-typedef enum {ID, CONSTANT, OPERATOR, PUNCTUATOR, NA} token;	//enum representing token name
+
 
 typedef struct tokeniser_node{				//record for one node of the linked list
 	int line_number;			
@@ -34,13 +34,46 @@ t_node * create_t_node()					//this function is gonna create a new node for our 
 	return new;
 }
 
+void add_to_end(t_node* head, t_node* new)
+{
+	t_node* p = head;
+	if(head==NULL)
+	{
+		head = new;
+		return;
+	}
+	while(p->next != NULL)
+		p = p->next;
+	p->next = new;
+	return;
+}
+
 void print_linked_list(t_node* head)				// will throw up whatever the tokenizer consumed. It's not gross when it's code. Thank god we're not doctors!
 {
 	t_node *  p;
-	p = head;
+	p = head->next;
+	char token_name_string[MAX_SRC_WORD];
+	
 	while(p!=NULL)
 	{
-		printf("(%d, %s, %s) -- ", p->line_number, p->lexeme, p-> token_name );	//printing as a triple here. Don't mind the shabby formatting. 
+		
+		switch(p->token_name)
+		{
+			case ID: strcpy(token_name_string,"ID");
+					break;
+			case CONSTANT: strcpy(token_name_string,"CONSTANT");
+					break;
+			case OPERATOR: strcpy(token_name_string,"OPERATOR");
+					break;
+			case PUNCTUATOR: strcpy(token_name_string,"PUNCTUATOR");
+					break;
+			case KEYWORD: strcpy(token_name_string, "KEYWORD");
+					break;
+			case NA: strcpy(token_name_string,"NA");
+		
+					break;		
+		}
+		printf("(%d, %s, %s)\t", p->line_number, p->lexeme, token_name_string );	//printing as a triple here. Don't mind the shabby formatting. 
 		p = p -> next;
 	}
 }
@@ -50,24 +83,40 @@ t_node * tokeniseSourceCode (char * filename, t_node * head)	//the function we'r
 	FILE * fd_src;
 	fd_src = fopen(filename, "r");
 	char read_buffer[MAX_READ_LINE]; 
-	int line_number = 1;
+	int line_number = 0;
 	char *token_string;
-	t_node* head, *p;
-	p = head;
-	while(fgetc(read_buffer, sizeof(readbuffer), fd_src)!= EOF)
+	t_node *new;
+	
+	while(fgets(read_buffer, sizeof(read_buffer), fd_src)!= NULL)
 	{
-		token_string = strtoken(read_buffer," ");
+		line_number++;
+		if(read_buffer[strlen(read_buffer)-1] == '\n')
+			read_buffer[strlen(read_buffer)-1] = '\0';
+		token_string = strtok(read_buffer," ");
+		
 		while(token_string!=NULL)
 		{
-			token = 
-			case 
+			if(strcmp(" ",token_string))
+			{
+				new = create_t_node();
+				new->line_number = line_number;
+				new->token_name = identify_token(token_string);
+				strcpy(new->lexeme,token_string);
+				add_to_end(head,new);
+			}
+			token_string = strtok(NULL," ");
+		
 		}
 	}
+	return head;
 }
 
 int main()							//driver function. Might include a call to the print function. 
 {
-	FILE *fd_src;
+
+	t_node* head = create_t_node();
+	head = tokeniseSourceCode("src.txt",head);
+	print_linked_list(head);
 	return 0;
 	
 }
