@@ -6,6 +6,7 @@
 #include "is_ID.h"
 #include "is_constant.h"
 
+
 typedef enum {ID, KEYWORD,  OPERATOR, PUNCTUATOR, NA, CONSTANT} token;
 
 void print_token_name(char * token_string);

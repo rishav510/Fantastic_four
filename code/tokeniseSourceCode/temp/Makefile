@@ -10,3 +10,8 @@ compile_all: linked_list.c is_ID.c identify_token.c is_keyword.c
 compile_identify_token:	is_ID.c identify_token.c is_keyword.c driver_identify_token.c
 	gcc -g is_ID.c is_keyword.c is_constant.c identify_token.c driver_identify_token.c -o test_identify_token 
 
+testdrive_tokeniseSourceCode: linked_list.c is_ID.c identify_token.c is_keyword.c is_constant.c tokeniseSourceCode.c 
+	gcc -g is_ID.c is_keyword.c is_constant.c identify_token.c tokeniseSourceCode.c testdrive_tokeniseSourceCode.c -o testdrive_tokeniseSourceCode
+	
+test: linked_list.c is_ID.c identify_token.c is_keyword.c is_constant.c tokeniseSourceCode.c 
+	gcc -g is_ID.c is_keyword.c is_constant.c identify_token.c tokeniseSourceCode.c -o test
