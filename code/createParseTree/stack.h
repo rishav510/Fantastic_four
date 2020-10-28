@@ -8,4 +8,4 @@ typedef struct{
 }stack;
 
 void push (char *string_to_push, stack *s);
-char* pop (stack *s, char* string_to_pop);
+char* pop (stack *s);

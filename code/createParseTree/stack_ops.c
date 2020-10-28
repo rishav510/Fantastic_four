@@ -9,19 +9,21 @@ void push (char *string_to_push, stack *s)
 { 
 	
 	stack_node* new = (stack_node*) malloc(sizeof(stack_node));
+	strcpy(new->stack_word,string_to_push);
 	new ->next = s->top;
 	s->top = new;
 	return;
 } 
 
-char* pop (stack *s, char* string_to_pop)
+char* pop (stack *s)
 {
+	char* str;
 	if (s-> top == NULL)
 		return NULL;
 
-	strcpy(string_to_pop,s->top->stack_word);
+	strcpy(str,s->top->stack_word);
 	s->top = s->top->next;
-	return string_to_pop;
+	return str;
 }
 
 
