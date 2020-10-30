@@ -1,0 +1,1 @@
+gelement* readGrammar(gelement* G);
