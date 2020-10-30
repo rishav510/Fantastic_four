@@ -17,7 +17,7 @@ typedef union node_struct{
 
 typedef struct pt_node{
 	struct parse_tree_node* child;
-	struct parse_tree_node* next_sibling;
+	struct parse_tree_node* sibling;
 	ntype node_type;
 	node_structure nstr;
 	char symbol_name[MAX_WORD_LENGTH];
